@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+
+
+<body>
+<h1>
+  Mortgage Principle: <input type="number" id="MP" name="MortgagePrincipleBox"><br>
+
+  Interest Rate (percent): <input type="number" id="IR" name="InterestRateBox"><br>
+  Program Length (years): <input type="number" id="PL" name="ProgramLengthBox"><br>
+</h1>
+<br>
+  <h2>
+  Monthly Payment: <input type="text" id="MoP" name="MonthlyPaymentBox"><br>
+</h2>
+
+  <button type="button" id="calButton" onclick="buttonCalculate()" >Calculate</button>
+
+
+  <script>
+
+    document.getElementById("MoP").readOnly = true;
+
+
+
+
+
+
+
+
+
+function buttonCalculate(){
+
+var P = document.getElementById("MP").value;
+var Interest = document.getElementById("IR").value;
+var r = (Interest/ 100);
+var Y = document.getElementById("PL").value;
+var n = (Y * 12);
+
+var EQ1 = (1 + r);
+var EQ2 = Math.pow(EQ1, n);
+var Numerator = (r * EQ2);
+var Denominator = (EQ2 - 1);
+var EQ4 = (Numerator/Denominator);
+var EQ5 = (P * EQ4);
+var TotalMonthlyPayment = EQ5.toFixed(2);
+
+
+
+
+
+
+document.getElementById("MoP").value = TotalMonthlyPayment;
+
+}
+
+
+
+
+  </script>
+<form action="/action_page.php">
+</form>
+</body>
+</html>
